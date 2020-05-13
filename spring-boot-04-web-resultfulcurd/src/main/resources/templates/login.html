@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css}" href="../assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/iconfonts/ionicons/css/ionicons.css}" href="../assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/iconfonts/typicons/src/font/typicons.css}" href="../assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css}" href="../assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/css/vendor.bundle.base.css}" href="../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" th:href="@{/static/assets/vendors/css/vendor.bundle.addons.css}" href="../assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" th:href="@{/static/assets/css/shared/style.css}" href="../assets/css/shared/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" th:href="@{/static/assets/images/favicon.png}" href="../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+          <div class="row w-100">
+            <div class="col-lg-4 mx-auto">
+              <div class="auto-form-wrapper">
+                <form action="#" th:action="@{/user/login}" method="post">
+                  <p style="color:red" th:text="${msg}" th:if="${!#strings.isEmpty(msg)}"></p>
+                  <div class="form-group">
+                    <label class="label" th:text="#{login.username}">Username</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Username" name="username" autocomplete="off">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="label" th:text="#{login.password}">Password</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" placeholder="*********" name="password" autocomplete="off">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary submit-btn btn-block" th:text="#{login.btn}">Login</button>
+                  </div>
+                  <div class="form-group d-flex justify-content-between">
+                    <div class="form-check form-check-flat mt-0">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" checked/> [[#{login.rm}]] </label>
+                    </div>
+                  </div>
+                  <div class="text-block text-center my-3">
+                    <a th:href="@{/index.html(l='zh_CN')}" href="#" class="text-small font-weight-semibold">中文</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/index.html(l='en_US')}" href="#" class="text-small font-weight-semibold">English</a>
+                  </div>
+                </form>
+              </div>
+              <ul class="auth-footer">
+                <li>
+                  <a href="#">Conditions</a>
+                </li>
+                <li>
+                  <a href="#">Help</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+              </ul>
+              <p class="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script th:src="@{/static/assets/vendors/js/vendor.bundle.base.js}" src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script th:src="@{/static/assets/vendors/js/vendor.bundle.addons.js}" src="../assets/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script th:src="@{/static/assets/js/shared/off-canvas.js}" src="../assets/js/shared/off-canvas.js"></script>
+    <script th:src="@{/static/assets/js/shared/misc.js}" src="../assets/js/shared/misc.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

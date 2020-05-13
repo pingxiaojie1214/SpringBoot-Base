@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:fragment="js">
+<!-- plugins:js -->
+<script th:src="@{/static/assets/vendors/js/vendor.bundle.base.js}" src="../assets/vendors/js/vendor.bundle.base.js"></script>
+<script th:src="@{/static/assets/vendors/js/vendor.bundle.addons.js}" src="../assets/vendors/js/vendor.bundle.addons.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script th:src="@{/static/assets/js/shared/off-canvas.js}" src="../assets/js/shared/off-canvas.js"></script>
+<script th:src="@{/static/assets/js/shared/misc.js}" src="../assets/js/shared/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script th:src="@{/static/assets/js/demo_1/dashboard.js}" src="../assets/js/demo_1/dashboard.js"></script>
+<!-- End custom js for this page-->
+</body>
+</html>

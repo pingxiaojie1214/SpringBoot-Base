@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <div th:replace="commons/common_css_01::css"></div>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!--引入topbar-->
+      <div th:replace="commons/bar::topbar"></div>
+      <div class="container-fluid page-body-wrapper">
+        <!--sidebar-->
+        <div th:replace="commons/bar::#sidebar(activeUrl='/emps.html')"></div>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+			  <div class="col-lg-3"></div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+					<!--需要区分是员工添加还是修改-->
+					<form action="#" th:action="@{/emp}" method="post">
+					  <!--发送put请求修改员工数据-->
+						<!--1.SpringMVC自动配置了HiddenHttpMethodFilter;
+						2.页面创建一个Post表单
+						3.创建一个input项，name="_method";值就是我们指定的请求方式-->
+					  <input type="hidden" name="_method" value="put" th:if="${emp!=null}"/>
+					  <input type="hidden" name="id" th:value="${emp.id}" th:if="${emp!=null}"/>
+					  <div class="form-group">
+						<label for="name" class="col-lg-3 control-label">姓名：</label>
+						<div class="col-lg-8">
+						  <input type="text" class="form-control" id="name" name="name" th:value="${emp!=null}?${emp.name}">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-lg-6 control-label">
+							性别：
+							<input type="radio" name="sex" value="男" th:checked="${emp!=null}?${emp.sex=='男'}">男&nbsp;&nbsp;
+							<input type="radio" name="sex" value="女" th:checked="${emp!=null}?${emp.sex=='女'}">女
+						</label>
+					  </div>
+					  <div class="form-group">
+						<label for="age" class="col-lg-3 control-label">年龄：</label>
+						<div class="col-lg-8">
+						  <input type="text" class="form-control" id="age" name="age" th:value="${emp!=null}?${emp.age}">
+						</div>
+					  </div>
+					  <div class="form-group">
+						  <label for="claszz" class="col-lg-3 control-label">班级:</label>
+						  <div class="col-lg-8">
+							  <select class="form-control" id="claszz" name="claszz">
+								<option value="JAVA105" th:selected="${emp!=null}?${emp.claszz == 'JAVA105'}">JAVA105</option>
+								<option value="JAVA106" th:selected="${emp!=null}?${emp.claszz == 'JAVA106'}">JAVA106</option>
+								<option value="JAVA107" th:selected="${emp!=null}?${emp.claszz == 'JAVA107'}">JAVA107</option>
+								<option value="JAVA108" th:selected="${emp!=null}?${emp.claszz == 'JAVA108'}">JAVA108</option>
+							  </select>
+						  </div>
+					  </div>
+					  <div class="form-group">
+						<label for="birth" class="col-lg-3 control-label">出生日期：</label>
+						<div class="col-lg-8">
+						  <input type="text" class="form-control" id="birth" name="birth" th:value="${emp!=null}?${#dates.format(emp.birth, 'yyyy-MM-dd')}">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<button class="btn btn-primary submit-btn btn-block" th:text="${emp!=null}?'修改':'新增'">新增</button>
+					  </div>
+					</form>
+                  </div>
+                </div>
+              </div>
+			  <div class="col-lg-3"></div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
+              </span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <div th:replace="commons/common_js_01::js"></div>
+  </body>
+</html>
